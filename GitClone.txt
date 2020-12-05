@@ -8,13 +8,24 @@
 
 
 ######################### FERRAN PAÜLS VERGÉS
+######### Només el primer cop:
 git config --global user.email "ferranpauls10@gmail.com"
 git config --global user.name "Ferran-pv"
 cd /home/ferran/Desktop/master/"R&I"/ml/final_project_skeleton/gdp_growth_forecast
 # creem remote repository
 git init
 git remote add origin https://github.com/brantrigo/GDP-Growth.git
-# actualitzem remote repository:
+########## update github -> directory
+git commit -m "Initial commit"
+git pull origin master 
+git merge master
+########## actualitzem remote repository:
 git add .
 git commit -m "Initial commit" # mira si hi ha canvis.
-git push -u origin master # fa els canvis. 
+git push origin master 
+#! si m'equivoco amb un add: git filter-branch --tree-filter 'rm -rf db.sqlite3' HEAD
+
+
+
+
+
