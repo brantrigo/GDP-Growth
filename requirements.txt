@@ -1,0 +1,5 @@
+flake8 #neatness of code
+pycodestyle_magic #neatness of code
+  #sqlite3?
+pandas
+numpy
