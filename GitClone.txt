@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 ######################### FERRAN PAÜLS VERGÉS
 ######### Només el primer cop:
 git config --global user.email "ferranpauls10@gmail.com"
