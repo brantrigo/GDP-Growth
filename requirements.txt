@@ -3,3 +3,4 @@ pycodestyle_magic #neatness of code
   #sqlite3?
 pandas
 numpy
+asgl

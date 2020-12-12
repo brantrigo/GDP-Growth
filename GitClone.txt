@@ -6,7 +6,9 @@ cd /home/ferran/Desktop/master/"R&I"/ml/final_project_skeleton/gdp_growth_foreca
 # creem remote repository
 git init
 git remote add origin https://github.com/brantrigo/GDP-Growth.git
-########## update github -> directory
+########## update github -> directory [potser és necessary fer un add file]
+cd /home/ferran/Desktop/master/"R&I"/ml/final_project_skeleton/gdp_growth_forecast
+git init
 git commit -m "Initial commit"
 git pull origin master 
 git merge master
