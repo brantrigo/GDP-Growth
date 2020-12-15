@@ -16,12 +16,12 @@ def retrieve_training_dataset(database_path):
     conn = sqlite3.connect(database_path)
     long = pd.read_sql("""SELECT * FROM CountryIndicators;""", conn)
     table = pd.pivot_table(long, values=['Value'],
-                       index=['CountryCode', 'IndicatorCode'],
-                       columns=['Year'],
+                       index=['Year'],
+                       columns=['IndicatorCode'],
                        aggfunc=np.sum)
     table = table.dropna(axis=0, how="any", thresh=50, subset=None, inplace=False)
     #table.fillna(method='ffill')
-    table.drop(('Value', 1960), axis = 1, inplace=True)
+    #table.drop(('Value', 1960), axis = 1, inplace=True)
     print(table.iloc[0:9,0:9])
     print(table.shape)
     #table.drop(columns=('Value', 1960))

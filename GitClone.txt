@@ -50,7 +50,14 @@ If you had make changes that you don't want to add and commit
 (.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git status
 # Now is possible to commit and push, without messing up the repo
 
+HOW TO EDIT .gitignore
 
+# Acces the file
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ vi .gitignore
+# To modify with 'I'
+# Quit with ESC
+# To close edit mode use ':q'
+# To save and close use: ':wq'
 
 
 
