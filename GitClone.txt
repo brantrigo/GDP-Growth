@@ -20,5 +20,37 @@ git push origin master
 
 
 
+HOW TO INSTALL REQUIREMENTS
+
+# Create the virtual enviroment: 
+BRANs-Air:GDP-Growth branalfeirantrigo$ virtualenv .venv
+# Activate the virtual enviroment:
+BRANs-Air:GDP-Growth branalfeirantrigo$ source .venv/bin/activate
+# Install all required packages for running the program:
+(.venv) BRANs-Air:GDP-Growth branalfeirantrigo$ pip install -r requirements.txt
+# If you installed more packages later on, update the requirements file: 
+(.venv) BRANs-Air:GDP-Growth branalfeirantrigo$ pip freeze > requirements.txt
+# Show all packages in terminal: 
+(.venv) BRANs-Air:GDP-Growth branalfeirantrigo$ cat requirements.txt
+# To pull and update our local folder:
+(.venv) BRANs-Air:GDP-Growth branalfeirantrigo$ git pull origin master
+
+
+HOW TO NOT MESS UP THE REPO
+
+If you had make changes that you don't want to add and commit
+# First add only those files, one by one, that you do want to commit
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git add cli.py
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git add utils/io.py
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git add utils/models.py
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git status
+# Then reject the changes on those files that you don't want to commit
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git restore analysis/dbCreation_FeatureAnalysis.ipynb
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git restore analysis/project1.ipynb
+(.venv) BRANs-MacBook-Air:GDP-Growth branalfeirantrigo$ git status
+# Now is possible to commit and push, without messing up the repo
+
+
+
 
 
