@@ -21,9 +21,13 @@ parser.add_argument(
 )
 # You can add here custom optional arguments to your program
 
+# database_path = config.DATABASE_PATH
+
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.task == "train":
+        io.retrieve_training_dataset(config.DATABASE_PATH)
+        print("Menuda mierda")
         logging.info("Training")
     if args.task == "predict":
-        logging.info("Predinting")
+        logging.info("Predicting")
