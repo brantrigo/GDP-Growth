@@ -26,7 +26,7 @@ parser.add_argument(
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.task == "train":
-        io.retrieve_training_dataset(config.DATABASE_PATH)
+        io.retrieve_training_dataset(config.DATABASE_PATH, config.exclude_list)
         print("Menuda mierda")
         logging.info("Training")
     if args.task == "predict":

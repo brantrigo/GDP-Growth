@@ -4,27 +4,27 @@ import pandas as pd
 import numpy as np
 
 # Related third party imports
-# Local application/library specific imports
 
-def retrieve_training_dataset(database_path):
+# Local application/library specific imports
+from utils import read_database as rd
+
+def retrieve_training_dataset(database_path, exclude_list):
     """ Retrieves most relevant variables from trainning.
     :param database_path: OS path to database.
+    :exclude_list: List of excluded countries or regions.
 
     """
-    pd.set_option('display.max_colwidth', None)
-    pd.set_option('display.max_rows', 100) 
-    conn = sqlite3.connect(database_path)
-    long = pd.read_sql("""SELECT * FROM CountryIndicators;""", conn)
-    table = pd.pivot_table(long, values=['Value'],
-                       index=['Year'],
-                       columns=['IndicatorCode'],
-                       aggfunc=np.sum)
-    table = table.dropna(axis=0, how="any", thresh=50, subset=None, inplace=False)
-    #table.fillna(method='ffill')
-    #table.drop(('Value', 1960), axis = 1, inplace=True)
-    print(table.iloc[0:9,0:9])
-    print(table.shape)
-    #table.drop(columns=('Value', 1960))
+    # Get values from all countries but those in exclude_list
+    long = rd.get_data(database_path, exclude_list)
+    # Reshape and prepare Dataframe for linear model. Fit Linear Model and residuals
+    df = rd.prepare_data(long)
+    # Reject Indicators whose NaN values exceed threshold
+    df_fewNA = rd.clean_data(df)
+    # Select the top TOP values that better explain GDP Growth
+    selected_variables = rd.select_data(df_fewNA, 50)
+    
+    
+    
     
 def retrieve_predict_dataset():
     print("Not finished yet")
