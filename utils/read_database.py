@@ -27,7 +27,7 @@ def prepare_data(long, PREDICTED_INDICATOR):
             list(range(0,len(pd.unique(df.Country)))))
     groups = pd.to_numeric(groups.Country)
     return df, groups
-    
+
 def linear_model(df1, PREDICTED_INDICATOR, groups):
     # Replace . by _ for linear model
     df1.columns = df1.columns.str.replace(".", "_")
@@ -53,7 +53,6 @@ def clean_data(df, threshold = 0.3):
     df_fewNA["Country"] = country2
     return df_fewNA
 
-
 def select_data(df_fewNA, num_features = 50):
     # Feature selection
     covs = df_fewNA.drop(["NY_GDP_MKTP_KD_ZG","residuals"], 1)
@@ -64,21 +63,3 @@ def select_data(df_fewNA, num_features = 50):
     selected_variables = df_varimp.sort_values(by="varimp",ascending=False)[0:49]
     selected_variables['name'] = selected_variables['name'].str.replace('_','.')
     return selected_variables
-
-def get_selected_data(selected_variables, database_path):
-    conn = sqlite3.connect(database_path)
-    list_of_entries_to_retrive = (selected_variables['name']).tolist()
-    queryString = 'SELECT IndicatorCode, LongDefinition FROM Indicators WHERE IndicatorCode IN (\'{}\');'.format('\',\''.join([_ for _ in list_of_entries_to_retrive]))
-    vars_definition = pd.read_sql(queryString, con=conn)
-    vars_definition = vars_definition.append(pd.DataFrame(data={'IndicatorCode': ["lag1","Country","Time"],'LongDefinition': ["lag1","Country","Time"]}), ignore_index=True)
-    vars_definition = vars_definition.sort_values(by="IndicatorCode")
-    selected_variables = selected_variables.sort_values(by="name")
-    if selected_variables['name'].tolist() == vars_definition['IndicatorCode'].tolist():
-        selected_variables["LongDefinition"] = vars_definition['LongDefinition'].tolist()
-    return vars_definition
-    
-
-
-
-
-    
