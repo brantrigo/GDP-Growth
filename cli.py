@@ -26,8 +26,8 @@ parser.add_argument(
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.task == "train":
-        io.retrieve_training_dataset(config.DATABASE_PATH, config.exclude_list)
-        print("Menuda mierda")
+        data = io.retrieve_training_dataset(config.DATABASE_PATH, config.exclude_list, config.PREDICTED_INDICATOR)
+        print(data)
         logging.info("Training")
     if args.task == "predict":
         logging.info("Predicting")

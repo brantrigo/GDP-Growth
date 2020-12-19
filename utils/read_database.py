@@ -13,30 +13,35 @@ def get_data(database_path, exclude_list = None):
     long = long.loc[~long["CountryCode"].isin(not_country)]
     return long
 
-def prepare_data(long):
+def prepare_data(long, PREDICTED_INDICATOR):
     """Create a Multi-index Dataframe and prepare data for linear model"""
-    # Reshape dataframe
     df = long.pivot_table(index=['CountryCode','Year'], columns='IndicatorCode',values='Value',aggfunc=np.sum)
-    # Substitue _ by . for compatibility with statsmodels.formula.api
+    # Create 3 more columns with Countries, Objective Indicator lag and year
     df['Country'] = df.index.get_level_values(0)
-    df.columns = df.columns.str.replace(".", "_")
-    # Creation of covariables for the linear model
-    df['lag1'] = df['NY_GDP_MKTP_KD_ZG'].shift(1)
+    df['lag1'] = df[PREDICTED_INDICATOR].shift(1)
     df['Time'] = df.index.get_level_values(1)
-    df = df.dropna(subset=["NY_GDP_MKTP_KD_ZG","lag1"])
-    # Countries strings to numeric values:
+    # Extract Rows where Predicted Indicator and its lag do not have values
+    df = df.dropna(subset=[PREDICTED_INDICATOR,"lag1"])
+    # Countries strings to numeric values
     groups = df[["Country"]].replace(pd.unique(df.Country), 
             list(range(0,len(pd.unique(df.Country)))))
     groups = pd.to_numeric(groups.Country)
+    return df, groups
+    
+def linear_model(df1, PREDICTED_INDICATOR, groups):
+    # Replace . by _ for linear model
+    df1.columns = df1.columns.str.replace(".", "_")
+    predicted_indicator = PREDICTED_INDICATOR.replace(".", "_")
     # Mixed linear model with group as random effect.
-    df_sub = df[["NY_GDP_MKTP_KD_ZG","Country","lag1"]]
-    md = smf.mixedlm("NY_GDP_MKTP_KD_ZG ~ lag1", df_sub, groups=groups)#re_formula="~Time",groups=groups,  #df["Country"].to_numpy()
+    df1_sub = df1[[predicted_indicator,"Country","lag1"]]
+    string = f"{predicted_indicator} ~ lag1"
+    md = smf.mixedlm(string, df1_sub, groups=groups)
     mod = md.fit()
     print(mod.summary())
-    df['residuals'] = mod.resid
-    df['Country'] = groups
+    df1['residuals'] = mod.resid
+    df1['Country'] = groups
     mod.summary()
-    return df
+    return df1
 
 def clean_data(df, threshold = 0.3):
     """Reject Indicators whose NaN values exceed threshold """
@@ -59,6 +64,19 @@ def select_data(df_fewNA, num_features = 50):
     selected_variables = df_varimp.sort_values(by="varimp",ascending=False)[0:49]
     selected_variables['name'] = selected_variables['name'].str.replace('_','.')
     return selected_variables
+
+def get_selected_data(selected_variables, database_path):
+    conn = sqlite3.connect(database_path)
+    list_of_entries_to_retrive = (selected_variables['name']).tolist()
+    queryString = 'SELECT IndicatorCode, LongDefinition FROM Indicators WHERE IndicatorCode IN (\'{}\');'.format('\',\''.join([_ for _ in list_of_entries_to_retrive]))
+    vars_definition = pd.read_sql(queryString, con=conn)
+    vars_definition = vars_definition.append(pd.DataFrame(data={'IndicatorCode': ["lag1","Country","Time"],'LongDefinition': ["lag1","Country","Time"]}), ignore_index=True)
+    vars_definition = vars_definition.sort_values(by="IndicatorCode")
+    selected_variables = selected_variables.sort_values(by="name")
+    if selected_variables['name'].tolist() == vars_definition['IndicatorCode'].tolist():
+        selected_variables["LongDefinition"] = vars_definition['LongDefinition'].tolist()
+    return vars_definition
+    
 
 
 

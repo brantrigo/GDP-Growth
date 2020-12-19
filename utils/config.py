@@ -8,6 +8,8 @@ MODELS_PATH = os.path.join(BASE_DIR, "models")
 
 LOGS_PATH = os.path.join(BASE_DIR, "logs")
 
+PREDICTED_INDICATOR = 'NY.GDP.MKTP.KD.ZG'
+
 exclude_list = ['Arab World', 'Caribbean small states', 'Central Europe and the Baltics',
  'East Asia & Pacific \(all income levels',
  'East Asia & Pacific \(developing only', 'Euro area',
