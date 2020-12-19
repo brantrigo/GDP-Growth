@@ -8,7 +8,7 @@ import numpy as np
 # Local application/library specific imports
 from utils import read_database as rd
 
-def retrieve_training_dataset(database_path, exclude_list, PREDICTED_INDICATOR):
+def retrieve_clean_dataset(database_path, exclude_list, PREDICTED_INDICATOR):
     """ Retrieves most relevant variables from trainning.
     :param database_path: OS path to database.
     :exclude_list: List of excluded countries or regions.
