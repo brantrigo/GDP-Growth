@@ -28,3 +28,7 @@ exclude_list = ['Arab World', 'Caribbean small states', 'Central Europe and the 
  'Pacific island small states', 'Small states', 'South Asia',
  'Sub-Saharan Africa \(all income levels',
  'Sub-Saharan Africa \(developing only' ,'Upper middle income' ,'World', 'North America', 'OECD members']
+ 
+DB_YEAR_MIN = 1960
+
+DB_YEAR_MAX = 2010

@@ -1,0 +1,156 @@
+2020-12-20 19:12:40,948 - [INFO] - Determining relevant covariables
+2020-12-20 19:14:34,056 - [INFO] - Determining relevant covariables
+2020-12-20 19:14:38,689 - [INFO] - Retrieving training dataset
+2020-12-20 19:22:57,881 - [INFO] - Determining relevant covariables
+2020-12-20 19:23:17,608 - [INFO] - Determining relevant covariables
+2020-12-20 19:24:27,203 - [INFO] - Determining relevant covariables
+2020-12-20 19:24:31,895 - [INFO] - Starting the train
+2020-12-20 19:24:50,875 - [INFO] - Determining relevant covariables
+2020-12-20 19:24:55,563 - [INFO] - Starting the train
+2020-12-20 19:24:55,563 - [INFO] - Retrieving training dataset
+2020-12-20 19:27:02,029 - [INFO] - Determining relevant covariables
+2020-12-20 19:27:06,700 - [INFO] - Starting the train
+2020-12-20 19:27:06,700 - [INFO] - Retrieving training dataset
+2020-12-20 19:29:04,679 - [INFO] - Determining relevant covariables
+2020-12-20 19:29:09,334 - [INFO] - Starting the train
+2020-12-20 19:29:09,334 - [INFO] - Retrieving training dataset
+2020-12-20 19:29:09,892 - [INFO] - Getting booster model
+2020-12-20 19:29:09,923 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 19:33:35,786 - [INFO] - Determining relevant covariables
+2020-12-20 19:33:40,497 - [INFO] - Starting the train
+2020-12-20 19:33:40,497 - [INFO] - Retrieving training dataset
+2020-12-20 19:37:51,408 - [INFO] - Determining relevant covariables
+2020-12-20 19:37:56,042 - [INFO] - Starting the train
+2020-12-20 19:39:15,477 - [INFO] - Determining relevant covariables
+2020-12-20 19:39:20,115 - [INFO] - Starting the train
+2020-12-20 19:40:15,726 - [INFO] - Determining relevant covariables
+2020-12-20 19:40:20,508 - [INFO] - Starting the train
+2020-12-20 19:41:13,561 - [INFO] - Determining relevant covariables
+2020-12-20 19:41:18,174 - [INFO] - Starting the train
+2020-12-20 19:42:46,873 - [INFO] - Determining relevant covariables
+2020-12-20 19:42:51,574 - [INFO] - Starting the train
+2020-12-20 19:42:51,575 - [INFO] - Retrieving training dataset
+2020-12-20 19:42:52,134 - [INFO] - Getting booster model
+2020-12-20 19:42:52,165 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 19:47:27,362 - [INFO] - Determining relevant covariables
+2020-12-20 19:47:32,037 - [INFO] - Starting the train
+2020-12-20 19:47:32,038 - [INFO] - Retrieving training dataset
+2020-12-20 19:47:32,605 - [INFO] - Getting booster model
+2020-12-20 19:47:32,633 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 19:48:37,936 - [INFO] - Determining relevant covariables
+2020-12-20 19:48:42,599 - [INFO] - Starting the train
+2020-12-20 19:48:42,600 - [INFO] - Retrieving training dataset
+2020-12-20 19:48:43,163 - [INFO] - Getting booster model
+2020-12-20 19:48:43,194 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 19:52:09,764 - [INFO] - Determining relevant covariables
+2020-12-20 19:52:14,356 - [INFO] - Starting the train
+2020-12-20 19:52:14,357 - [INFO] - Retrieving training dataset
+2020-12-20 19:55:46,556 - [INFO] - Determining relevant covariables
+2020-12-20 19:55:51,228 - [INFO] - Starting the train
+2020-12-20 19:55:51,229 - [INFO] - Retrieving training dataset
+2020-12-20 19:56:04,796 - [INFO] - Determining relevant covariables
+2020-12-20 19:56:09,400 - [INFO] - Starting the train
+2020-12-20 19:56:09,401 - [INFO] - Retrieving training dataset
+2020-12-20 20:08:38,515 - [INFO] - Determining relevant covariables
+2020-12-20 20:08:43,122 - [INFO] - Starting the train
+2020-12-20 20:08:43,128 - [INFO] - Retrieving training dataset
+2020-12-20 20:09:23,431 - [INFO] - Determining relevant covariables
+2020-12-20 20:09:28,053 - [INFO] - Starting the train
+2020-12-20 20:09:28,057 - [INFO] - Retrieving training dataset
+2020-12-20 20:10:19,568 - [INFO] - Determining relevant covariables
+2020-12-20 20:10:24,282 - [INFO] - Starting the train
+2020-12-20 20:10:24,288 - [INFO] - Retrieving training dataset
+2020-12-20 20:11:04,390 - [INFO] - Determining relevant covariables
+2020-12-20 20:11:09,138 - [INFO] - Starting the train
+2020-12-20 20:11:09,143 - [INFO] - Retrieving training dataset
+2020-12-20 20:11:09,602 - [INFO] - Getting booster model
+2020-12-20 20:11:09,635 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:12:48,101 - [INFO] - Determining relevant covariables
+2020-12-20 20:12:52,734 - [INFO] - Starting the train
+2020-12-20 20:12:52,740 - [INFO] - Retrieving training dataset
+2020-12-20 20:12:53,207 - [INFO] - Getting booster model
+2020-12-20 20:12:53,235 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:19:05,037 - [INFO] - Determining relevant covariables
+2020-12-20 20:19:09,660 - [INFO] - Starting the train
+2020-12-20 20:19:09,666 - [INFO] - Retrieving training dataset
+2020-12-20 20:19:10,128 - [INFO] - Getting booster model
+2020-12-20 20:19:10,154 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:20:44,845 - [INFO] - Starting the prediction
+2020-12-20 20:20:44,845 - [INFO] - Retrieving test dataset
+2020-12-20 20:22:56,467 - [INFO] - Determining relevant covariables
+2020-12-20 20:23:01,206 - [INFO] - Starting the train
+2020-12-20 20:23:01,212 - [INFO] - Retrieving training dataset
+2020-12-20 20:23:01,669 - [INFO] - Getting booster model
+2020-12-20 20:23:01,696 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:24:41,107 - [INFO] - Starting the prediction
+2020-12-20 20:24:41,108 - [INFO] - Retrieving test dataset
+2020-12-20 20:29:53,212 - [INFO] - Determining relevant covariables
+2020-12-20 20:29:55,209 - [INFO] - Starting the train
+2020-12-20 20:29:55,211 - [INFO] - Retrieving training dataset
+2020-12-20 20:29:55,394 - [INFO] - Getting booster model
+2020-12-20 20:29:55,404 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:30:20,251 - [INFO] - Starting the prediction
+2020-12-20 20:30:20,254 - [INFO] - Retrieving test dataset
+2020-12-20 20:32:08,449 - [INFO] - Determining relevant covariables
+2020-12-20 20:32:10,441 - [INFO] - Starting the train
+2020-12-20 20:32:10,443 - [INFO] - Retrieving training dataset
+2020-12-20 20:32:10,639 - [INFO] - Getting booster model
+2020-12-20 20:32:10,653 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:32:36,434 - [INFO] - Starting the prediction
+2020-12-20 20:32:36,434 - [INFO] - Retrieving test dataset
+2020-12-20 20:34:20,178 - [INFO] - Determining relevant covariables
+2020-12-20 20:34:22,141 - [INFO] - Starting the train
+2020-12-20 20:34:22,144 - [INFO] - Retrieving training dataset
+2020-12-20 20:34:22,338 - [INFO] - Getting booster model
+2020-12-20 20:34:22,351 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:34:48,657 - [INFO] - Starting the prediction
+2020-12-20 20:34:48,659 - [INFO] - Retrieving test dataset
+2020-12-20 20:35:58,285 - [INFO] - Determining relevant covariables
+2020-12-20 20:36:00,294 - [INFO] - Starting the train
+2020-12-20 20:36:00,297 - [INFO] - Retrieving training dataset
+2020-12-20 20:36:00,495 - [INFO] - Getting booster model
+2020-12-20 20:36:00,507 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:36:25,562 - [INFO] - Starting the prediction
+2020-12-20 20:36:25,564 - [INFO] - Retrieving test dataset
+2020-12-20 20:36:51,843 - [INFO] - Determining relevant covariables
+2020-12-20 20:36:53,790 - [INFO] - Starting the train
+2020-12-20 20:36:53,793 - [INFO] - Retrieving training dataset
+2020-12-20 20:36:53,985 - [INFO] - Getting booster model
+2020-12-20 20:36:53,995 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:37:18,678 - [INFO] - Starting the prediction
+2020-12-20 20:37:18,679 - [INFO] - Retrieving test dataset
+2020-12-20 20:39:17,866 - [INFO] - Determining relevant covariables
+2020-12-20 20:39:19,874 - [INFO] - Starting the train
+2020-12-20 20:39:19,877 - [INFO] - Retrieving training dataset
+2020-12-20 20:39:20,070 - [INFO] - Getting booster model
+2020-12-20 20:39:20,082 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:39:45,165 - [INFO] - Starting the prediction
+2020-12-20 20:39:45,165 - [INFO] - Retrieving test dataset
+2020-12-20 20:41:03,027 - [INFO] - Determining relevant covariables
+2020-12-20 20:41:05,027 - [INFO] - Starting the train
+2020-12-20 20:41:05,030 - [INFO] - Retrieving training dataset
+2020-12-20 20:41:05,216 - [INFO] - Getting booster model
+2020-12-20 20:41:05,232 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:41:29,945 - [INFO] - Starting the prediction
+2020-12-20 20:41:29,945 - [INFO] - Retrieving test dataset
+2020-12-20 20:41:50,943 - [INFO] - Determining relevant covariables
+2020-12-20 20:41:52,949 - [INFO] - Starting the train
+2020-12-20 20:41:52,951 - [INFO] - Retrieving training dataset
+2020-12-20 20:41:53,139 - [INFO] - Getting booster model
+2020-12-20 20:41:53,150 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:42:17,968 - [INFO] - Starting the prediction
+2020-12-20 20:42:17,968 - [INFO] - Retrieving test dataset
+2020-12-20 20:47:02,993 - [INFO] - Determining relevant covariables
+2020-12-20 20:47:05,027 - [INFO] - Starting the train
+2020-12-20 20:47:05,031 - [INFO] - Retrieving training dataset
+2020-12-20 20:47:05,220 - [INFO] - Getting booster model
+2020-12-20 20:47:05,232 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:47:30,441 - [INFO] - Starting the prediction
+2020-12-20 20:47:30,441 - [INFO] - Retrieving test dataset
+2020-12-20 20:47:46,832 - [INFO] - Determining relevant covariables
+2020-12-20 20:47:48,821 - [INFO] - Starting the train
+2020-12-20 20:47:48,823 - [INFO] - Retrieving training dataset
+2020-12-20 20:47:49,016 - [INFO] - Getting booster model
+2020-12-20 20:47:49,030 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:48:13,794 - [INFO] - Starting the prediction
+2020-12-20 20:48:13,794 - [INFO] - Retrieving test dataset
