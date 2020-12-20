@@ -8,10 +8,12 @@ git init
 git remote add origin https://github.com/brantrigo/GDP-Growth.git
 ########## update github -> directory [potser és necessary fer un add file]
 cd /home/ferran/Desktop/master/"R&I"/ml/final_project_skeleton/gdp_growth_forecast
-git init
 git commit -m "Initial commit"
 git pull origin master 
 git merge master
+## si hi ha problemes:
+#git fetch --all 
+#git reset --hard origin/master
 ########## actualitzem remote repository:
 git add .
 git commit -m "Initial commit" # mira si hi ha canvis.
