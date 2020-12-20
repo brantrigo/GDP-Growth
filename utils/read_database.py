@@ -3,6 +3,9 @@ import numpy as np
 import sqlite3
 import statsmodels.formula.api as smf
 from sklearn.feature_selection import f_regression, mutual_info_regression
+import os.path   
+from utils import config
+
 
 def get_data(database_path, exclude_list = None):
     """Retrieve data from the database, excluding names in exclude_list"""
@@ -62,4 +65,34 @@ def select_data(df_fewNA, num_features = 50):
     # Keep top50
     selected_variables = df_varimp.sort_values(by="varimp",ascending=False)[0:49]
     selected_variables['name'] = selected_variables['name'].str.replace('_','.')
+    selected_variables['name'].to_csv(path_or_buf='./utils/selected_variables.txt',header=True, 
+                                          index=None, sep='\t', mode='a')
     return selected_variables
+
+
+def get_select_data(database_path,exclude_list, PREDICTED_INDICATOR, file='./utils/selected_variables.txt'):
+    if os.path.isfile(file):
+        selected_variables= pd.read_csv(file)   
+        conn = sqlite3.connect(database_path)
+        selected_variables = selected_variables['name'].append(pd.Series("NY.GDP.MKTP.KD.ZG"),ignore_index=True).tolist()
+        queryString = 'SELECT * FROM CountryIndicators WHERE IndicatorCode IN (\'{}\');'.format('\',\''.join([_ for _ in selected_variables]))
+        vars1 = pd.read_sql(queryString, con=conn)
+        # LongName to CountryName
+        country_names = pd.read_sql("""SELECT LongName,CountryCode FROM Countries;""", conn)
+        not_country = country_names.loc[country_names["LongName"].isin(exclude_list)]["CountryCode"]
+        vars1= vars1.loc[~vars1["CountryCode"].isin(not_country)]
+        vars2 = vars1.pivot_table(index=['CountryCode','Year'], columns='IndicatorCode',values='Value',aggfunc=np.sum)
+        vars2['Country'] = vars2.index.get_level_values(0)
+        vars2['Time'] = vars2.index.get_level_values(1)
+        vars2['lag1'] = vars2[PREDICTED_INDICATOR].shift(1)
+        return vars2
+
+
+
+
+
+
+
+
+
+

@@ -32,9 +32,19 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.task == "predict":
         logging.info("Determining relevant covariables")
-        #data = io.retrieve_clean_dataset(config.DATABASE_PATH, config.exclude_list, config.PREDICTED_INDICATOR)
+        
+        
+        
+        
+        
+        
+        X  = io.retrieve_clean_dataset(database_path=config.DATABASE_PATH,
+                                       exclude_list=config.exclude_list,
+                                       PREDICTED_INDICATOR=config.PREDICTED_INDICATOR)
+
+        print(X)
+        
         #print(data)
-        print(args.year)
-        logging.info("Training")
-    if args.task == "predict":
-        logging.info("Predicting")
+        #logging.info("Training")
+    #if args.task == "predict":
+     #   logging.info("Predicting")
