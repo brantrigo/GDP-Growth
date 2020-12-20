@@ -16,18 +16,25 @@ logging.basicConfig(
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "task",
-    choices=["train", "predict"],
+    choices=["predict"],
     help="Task to be performed",
 )
-# You can add here custom optional arguments to your program
 
-# database_path = config.DATABASE_PATH
+parser.add_argument(
+    "--year", 
+    nargs="?",
+    help="Year of prediction",
+    default=2011
+)
+    
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    if args.task == "train":
-        data = io.retrieve_clean_dataset(config.DATABASE_PATH, config.exclude_list, config.PREDICTED_INDICATOR)
-        print(data)
+    if args.task == "predict":
+        logging.info("Determining relevant covariables")
+        #data = io.retrieve_clean_dataset(config.DATABASE_PATH, config.exclude_list, config.PREDICTED_INDICATOR)
+        #print(data)
+        print(args.year)
         logging.info("Training")
     if args.task == "predict":
         logging.info("Predicting")
