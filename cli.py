@@ -52,3 +52,4 @@ if __name__ == "__main__":
     	pred = bst.predict(data=X_test, group_data_pred=group_test)
     	y_pred = pred['fixed_effect'] + pred['random_effect_mean']
     	print(y_pred)
+    	

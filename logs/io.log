@@ -154,3 +154,10 @@
 2020-12-20 20:47:49,030 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
 2020-12-20 20:48:13,794 - [INFO] - Starting the prediction
 2020-12-20 20:48:13,794 - [INFO] - Retrieving test dataset
+2020-12-20 20:57:24,245 - [INFO] - Determining relevant covariables
+2020-12-20 20:57:26,330 - [INFO] - Starting the train
+2020-12-20 20:57:26,332 - [INFO] - Retrieving training dataset
+2020-12-20 20:57:26,530 - [INFO] - Getting booster model
+2020-12-20 20:57:26,541 - [INFO] - Calculating optimal number of boost rounds                  via cross-validation
+2020-12-20 20:57:54,344 - [INFO] - Starting the prediction
+2020-12-20 20:57:54,344 - [INFO] - Retrieving test dataset
