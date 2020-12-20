@@ -29,7 +29,10 @@ def retrieve_training_dataset(database_path, exclude_list, PREDICTED_INDICATOR):
     df['Country'] = groups
     lst = selected_variables['name'].to_list()
     data = df[lst]
+    # Include also predicted variable
+    data[PREDICTED_INDICATOR] = df[PREDICTED_INDICATOR]
     print(data['Country'])
+    print(data.head())
     return data
     
     

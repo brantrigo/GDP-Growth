@@ -1,3 +1,5 @@
+# read_database module 
+
 import pandas as pd
 import numpy as np
 import sqlite3
@@ -5,7 +7,10 @@ import statsmodels.formula.api as smf
 from sklearn.feature_selection import f_regression, mutual_info_regression
 
 def get_data(database_path, exclude_list = None):
-    """Retrieve data from the database, excluding names in exclude_list"""
+    """Retrieve data from the database, excluding names in exclude_list
+    :param database_path: OS path to database.
+    :exclude_list: List of excluded countries or regions.
+    """
     conn = sqlite3.connect(database_path)
     country_names = pd.read_sql("""SELECT * FROM Countries;""", conn)
     not_country = country_names.loc[country_names["LongName"].isin(exclude_list)]["CountryCode"]
@@ -14,7 +19,10 @@ def get_data(database_path, exclude_list = None):
     return long
 
 def prepare_data(long, PREDICTED_INDICATOR):
-    """Create a Multi-index Dataframe and prepare data for linear model"""
+    """Reshape Dataframe and included extra information for modelling
+    :long: Dataframe with all data as extracted from database. 
+    :PREDICTED_INDICATOR: Selected indicator from dataframe to predict.
+    """
     df = long.pivot_table(index=['CountryCode','Year'], columns='IndicatorCode',values='Value',aggfunc=np.sum)
     # Create 3 more columns with Countries, Objective Indicator lag and year
     df['Country'] = df.index.get_level_values(0)
@@ -29,6 +37,11 @@ def prepare_data(long, PREDICTED_INDICATOR):
     return df, groups
 
 def linear_model(df1, PREDICTED_INDICATOR, groups):
+    """Fit a linear model to data to get the residuals
+    :df1: Dataframe with all data as extracted from database. 
+    :PREDICTED_INDICATOR: Selected indicator from dataframe to predict.
+    :groups: Serie of Countries of same lenght as df1 Dataframe.
+    """ 
     # Replace . by _ for linear model
     df1.columns = df1.columns.str.replace(".", "_")
     predicted_indicator = PREDICTED_INDICATOR.replace(".", "_")
@@ -44,7 +57,10 @@ def linear_model(df1, PREDICTED_INDICATOR, groups):
     return df1
 
 def clean_data(df, threshold = 0.3):
-    """Reject Indicators whose NaN values exceed threshold """
+    """Reject Indicators whose NaN values exceed threshold
+    :df1: Dataframe with all data as extracted from database. 
+    :threshold: threshold for NaN values.
+    """
     # Filter/impute vars with NA
     df_fewNA = df[df.columns[(df.isnull().sum(axis=0)/df.shape[0]<=threshold)]]
     country2 = df_fewNA['Country']
@@ -54,6 +70,10 @@ def clean_data(df, threshold = 0.3):
     return df_fewNA
 
 def select_data(df_fewNA, num_features = 50):
+    """Select most relevant Indicators
+    :df_fewNA: cleaned dataframe with low NaN values
+    :num_features: number of parameters to predict
+    """
     # Feature selection
     covs = df_fewNA.drop(["NY_GDP_MKTP_KD_ZG","residuals"], 1)
     Y = df_fewNA[['residuals']]
