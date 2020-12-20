@@ -55,7 +55,7 @@ The software is executed through the terminal or command prompt, but first you n
 4) Install all libraries into that virtual enviroment:
     pip install -r requirements.txt
 5) Now you local machine is ready to run the software. Type into the terminal the interpreter, followed by the software main file, and the year to be predicted:
-    python cli.py predict 2011
+    python cli.py predict --year 2011
 6) The software will now create a model with the available data, and then predict the GDP-Growth for the year selected.
 
 
