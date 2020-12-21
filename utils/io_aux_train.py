@@ -56,8 +56,6 @@ def prepare_training_dataset(X, y):
         Response train data
     groups_train
         Group indices"""
-    print(X)
-    print(y)
     X = X.drop(config.DB_YEAR_MAX, axis=0)
     y_train = y.drop(config.DB_YEAR_MIN, axis=0)
     #X = X.drop(index = config.DB_YEAR_MIN - 1 , level=1)

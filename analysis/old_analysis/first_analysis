@@ -1,0 +1,2 @@
+At the beginning of this project we realized that using gpboost has an advantage over other classic GBM algorithms such as lightGBM. We did a very rudimental process to test (this is why we did not attached its notebook), but the difference between the gpboost and the lightGBM was so huge, that we followed this path.
+
