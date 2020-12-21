@@ -41,7 +41,7 @@ We use a  Gradient Tree Boosting model, combined with random effects (gpboost). 
 Our model can predict the GPD growth for any country and any year between 1961 and an arbitrary large year. Although, predictions for years that are too far in the future are not recommended.
 
 Note:
-Right now, the gpboost package does not have an ability to save properly the random effects part of the model. Also, most of the conventional analysis tools for ML algorithms, as e.g. SHAP, do not analyze the model correctly. 
+Right now, the gpboost package does not have an ability to save properly the random effects part of the model. Also, most of the conventional analysis tools for ML algorithms, as e.g. SHAP, do not analyze the model correctly. Nonetheless, gpboost achieves a higher accuracy than classic GBM models for the given panel data.
 #### 
 
 ### HOW TO EXECUTE IT
