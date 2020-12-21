@@ -1,9 +1,5 @@
 ## GDP Growth Forecast
 
-Bran Alfeiran Trigo 1588728
-Ferran Paüls Vergés 1393184
-Kevin Yanes García 1590310
-
 ### INTRODUCTION
 
 Gross domestic product (GDP) is a monetary measure of the market value
@@ -41,6 +37,11 @@ With the residuals from the linear model, we now use the mutual information regr
 
 #### TreeBoosting modelling
 
+We use a  Gradient Tree Boosting model, combined with random effects (gpboost). For further details s. https://github.com/fabsig/GPBoost.
+Our model can predict the GPD growth for any country and any year between 1961 and an arbitrary large year. Although, predictions for years that are too far in the future are not recommended.
+
+Note:
+Right now, the gpboost package does not have an ability to save properly the random effects part of the model. Also, most of the conventional analysis tools for ML algorithms, as e.g. SHAP, do not analyze the model correctly. 
 #### 
 
 ### HOW TO EXECUTE IT
