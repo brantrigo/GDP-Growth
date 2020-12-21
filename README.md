@@ -14,9 +14,31 @@ variables that you want from previous years, and you can use the model that you
 feel is going to work better. The aim is to have a model that can predict next
 year's GDP growth for each country in the world using the available data.
 
+This project has an SQL database with 6 tables:
+- Countries: Descriptive information about the countries (e.g. economical group, yeat latest data, etc.).
+- CountryNotes, Footnotes: Source of each indicator for each country.
+- CountryIndicators: All the variables avaiable per country/year.
+- Indicators: Variables and its definition.
+- EstimatedGPDGrowth: where the prediction values are stored.
+
+Size of the dataset: 
+- Initially: 1330 variables, 248 zones, 52 years (1960-2010).
+- 22 zones are filtered out and only countries (228) are kept.
+- Missing values of NY.GDP.MKTP.KD.ZG (response variable) are not analyzed. The database has 7968 of complete cases (the total with missing values: 11527).
+
+
 ### FUNCTIONAL AND TECHNICAL DESCRIPTION OF THE SOFTWARE
 
 The software predicts the GDP-Growth of all available countries into a dataset, for the year specified by the user. 
+
+Our goal is to predict a panel of time series, one for each country. With this in mind, we selected a gradient tree-boosting model because they are known to have a high prediction accuracy. Moreover, our model has the characteristic that allows grouped data (here heach country is a group), which should improve the prediction performance.
+One restriction of our project is that we must have at most 50 variables to do the predictions. That means we have to do feature selection before training the model. This can be divided in the following steps:
+
+- Autoregressive model: We found that NY.GDP.MKTP.KD.ZG of one year can be explained by the prior year and we created the variable to improve the predicttion.
+- As we know that the mentioned variable is important, we do a linear model (controlling by country) with it and extract the residuals, which will be used for the feature selection.
+- Our dataset has many missing values. We kept the variables that have less or equal than 30% of missings and performed imputation of NA (which is, prediction of missing values) in order to gain information and better prediction. The imputation first was done for each country separatedly and if a country had all the observations missing for one variable we filled them with the mean of all the other countries.
+- For the final step we used an algorithm called mutual information to select the variables that will be introduced in the model. The reason of this algorithm is because it's flexible (all variables have a value of importance, usually different from 0) and models non-linearities and complex high order interactions, as gradient boosting (the prediction model) does.
+- We only keep the 50 variables with higher weight of the mutual information output. Among them, 3 are variables created for us: Time, Country, and lag1 (previous year of NY.GDP.MKTP.KD.ZG).
 
 #### Extract and reshape data
 
